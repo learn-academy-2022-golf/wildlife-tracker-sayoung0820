@@ -36,6 +36,7 @@ def update
   end
 end
 
+
 private
   def animal_params
     params.require(:animal).permit(:common_name, :scientific_binomial)
