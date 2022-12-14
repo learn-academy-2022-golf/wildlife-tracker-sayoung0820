@@ -11,15 +11,15 @@ class AnimalsController < ApplicationController
 
     def create
         animal = Animal.create(animal_params)
-        if animal.valid?
+    if animal.valid?
            render json: animal
-        else render json: animal.errors
+    else render json: animal.errors
+        end
     end
-end
 
-def update
-    animal = Animal.find(params[:id])
-    animal.update(animal_params)
+    def update
+        animal = Animal.find(params[:id])
+        animal.update(animal_params)
     if animal.valid?
       render json: animal
     else
@@ -29,13 +29,12 @@ def update
 
   def destroy
     animal = Animal.find([:id])
-    if animal.destroy
+  if animal.destroy
         render json: animal
-    else
+  else
         render json: animal.errors
   end
 end
-
 
 private
   def animal_params
